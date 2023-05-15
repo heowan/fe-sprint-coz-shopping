@@ -4,6 +4,7 @@ import Main from "./pages/main";
 import ProductList from "./pages/productList";
 import Bookmark from "./pages/bookmark";
 import Header from "./component/header";
+import Footer from "./component/footer";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -23,6 +24,14 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
+  a {
+    text-decoration: none;
+  }
+
+  li, ul {
+    list-style: none;
+  }
+
 `;
 
 function App() {
@@ -35,7 +44,7 @@ function App() {
         <Route path="/products/list" element={<ProductList />} />
         <Route path="/bookmark" element={<Bookmark />} />
       </Routes>
-      <footer></footer>
+      <Footer />
     </BrowserRouter>
   );
 }
