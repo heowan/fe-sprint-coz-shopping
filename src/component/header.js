@@ -18,6 +18,8 @@ const HeaderContainer = styled.header`
 `;
 
 const HeaderLeft = styled.div`
+  position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
   margin-left: 76px;
