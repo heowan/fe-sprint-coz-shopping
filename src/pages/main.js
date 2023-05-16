@@ -1,12 +1,7 @@
-import styled from "styled-components";
+import ProductCard from "../components/products/productCard";
 
-const Div = styled.div`
-  width: 100%;
-  height: 800px;
-`;
-
-function Main() {
-  return <Div>메인</Div>;
+function Main({ productList }) {
+  return <ProductCard />;
 }
 
 export default Main;

@@ -1,4 +1,5 @@
 import { FooterContainer } from "../styled/footerStyle";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -6,10 +7,10 @@ function Footer() {
       <div className="footerMenu">
         <ul>
           <li>
-            <a href="#">개인정보 처리방침</a>
+            <Link to="#">개인정보 처리방침</Link>
           </li>
           <li>
-            <a href="#">이용약관</a>
+            <Link to="#">이용약관</Link>
           </li>
         </ul>
       </div>
