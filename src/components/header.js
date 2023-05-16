@@ -6,7 +6,7 @@ import {
 } from "../styled/headerStyle";
 import log from "../assets/로고.png";
 import menu from "../assets/햄버거 버튼.png";
-import DropDownMenu from "./dropDownMenu";
+import DropDownMenu from "./dropdownMenu";
 import { useState, useRef, useEffect } from "react";
 
 function Header() {
