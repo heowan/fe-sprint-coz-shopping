@@ -13,21 +13,6 @@ function ProductCard({ product }) {
     return setIsMark(!isMark);
   };
 
-  // 테스트를 위한 임시 데이터
-  product = {
-    id: 10,
-    type: "Brand",
-    title: null,
-    sub_title: null,
-    brand_name: "프라다",
-    price: null,
-    discountPercentage: null,
-    image_url: null,
-    brand_image_url:
-      "https://images.unsplash.com/photo-1607085941350-7d46c83aa9f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-    follower: 5721,
-  };
-
   return (
     <CardContainer>
       <div className="cardImg">
