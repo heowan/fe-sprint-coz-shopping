@@ -1,23 +1,23 @@
-import getRandomIndex from "../helper/randomList";
 import ProductCard from "../components/products/productCard";
 import { Container } from "../styled/mainStyle";
-
-const indexArr = getRandomIndex();
+import { useEffect, useState } from "react";
 
 function Main({ productList, setProductList, bookmarkList, setBookmarkList }) {
-  console.log(productList);
+  const [list, setList] = useState([]);
 
-  const ProductList = () => {
-    return indexArr.map((idx) => {
-      return <ProductCard product={productList[idx]} />;
-    });
-  };
+  useEffect(() => {
+    const list = productList.slice(0, 4);
+    setList(list);
+  }, [productList]);
+
   return (
     <Container>
       <div className="productList">
         <h2>상품 리스트</h2>
         <ul>
-          <ProductList />
+          {list.map((el) => {
+            return <ProductCard key={el.id} product={el} />;
+          })}
         </ul>
       </div>
       <div className="bookmarkList">

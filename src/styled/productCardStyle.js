@@ -2,7 +2,6 @@ import { styled } from "styled-components";
 
 export const CardContainer = styled.div`
   width: 264px;
-  margin-top: 80px;
 
   > .cardImg {
     position: relative;
