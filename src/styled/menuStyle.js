@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
-import productListIcon from "../assets/상품 아이콘.png";
-import bookmarkIcon from "../assets/북마크 아이콘.png";
 
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
   width: 100%;
   text-decoration: none;
   color: #000;
@@ -22,7 +20,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const MenuBox = styled.ul`
+export const MenuBox = styled.ul`
   font-size: 16px;
   font-weight: 400;
   background-color: #fff;
@@ -58,25 +56,3 @@ const MenuBox = styled.ul`
     left: 130px;
   }
 `;
-
-function DropDownMenu({ onClickMenuBtn }) {
-  return (
-    <MenuBox>
-      <li className="fistLi">OOO님, 안녕하세요!</li>
-      <li>
-        <StyledLink to="/products/list" onClick={onClickMenuBtn}>
-          <img src={productListIcon} alt="상품리스트 아이콘" />
-          <p>상품리스트 페이지</p>
-        </StyledLink>
-      </li>
-      <li>
-        <StyledLink to="/bookmark" onClick={onClickMenuBtn}>
-          <img src={bookmarkIcon} alt="북마크 아이콘" />
-          <p>북마크 페이지</p>
-        </StyledLink>
-      </li>
-    </MenuBox>
-  );
-}
-
-export default DropDownMenu;

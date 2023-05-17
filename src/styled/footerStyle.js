@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import { styled } from "styled-components";
 
-const FooterContainer = styled.footer`
+export const FooterContainer = styled.footer`
   width: 100%;
   height: 58px;
   display: flex;
@@ -46,23 +46,3 @@ const FooterContainer = styled.footer`
     }
   }
 `;
-
-function Footer() {
-  return (
-    <FooterContainer>
-      <div className="footerMenu">
-        <ul>
-          <li>
-            <a href="#">개인정보 처리방침</a>
-          </li>
-          <li>
-            <a href="#">이용약관</a>
-          </li>
-        </ul>
-      </div>
-      <div className="copy">All rights reserved @ Codestates</div>
-    </FooterContainer>
-  );
-}
-
-export default Footer;
