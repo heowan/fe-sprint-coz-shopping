@@ -4,11 +4,11 @@ import { getBookmarkList, setBookmarkList } from "../../api/bookmarkDataApi";
 import CardDec from "./productCardDec";
 import bookMarkOn from "../../assets/bookmark-on.png";
 import bookMarkOf from "../../assets/bookmark-off.png";
-
-// Product Category Exhibition Brand
+import Modal from "../modal";
 
 function ProductCard({ product, setIsChangeBookmark, listType }) {
   const [isMark, setIsMark] = useState(listType === "bookmark" ? true : false);
+  const [openModal, setOpenModal] = useState(false);
 
   const handleClick = () => {
     if (!isMark) {
@@ -30,22 +30,42 @@ function ProductCard({ product, setIsChangeBookmark, listType }) {
     }
   };
 
+  const handleClickImg = () => {
+    setOpenModal(!openModal);
+    return;
+  };
+
   return (
     <CardContainer>
-      <div className="cardImg">
-        <img
-          src={
-            product.type === "Brand"
-              ? product.brand_image_url
-              : product.image_url
-          }
-          alt="상품이미지"
-        />
-        <button onClick={handleClick}>
+      <div className="cardImgContainer">
+        <button className="cardImg" onClick={handleClickImg}>
+          <img
+            src={
+              product.type === "Brand"
+                ? product.brand_image_url
+                : product.image_url
+            }
+            alt="상품이미지"
+          />
+        </button>
+        <button className="bookmark" onClick={handleClick}>
           <img src={isMark ? bookMarkOn : bookMarkOf} alt="북마크아이콘" />
         </button>
       </div>
       <CardDec product={product} />
+      {openModal ? (
+        <Modal
+          handleClickImg={handleClickImg}
+          handleClick={handleClick}
+          isMark={isMark}
+          img={
+            product.type === "Brand"
+              ? product.brand_image_url
+              : product.image_url
+          }
+          title={product.type === "Brand" ? product.brand_name : product.title}
+        />
+      ) : undefined}
     </CardContainer>
   );
 }
