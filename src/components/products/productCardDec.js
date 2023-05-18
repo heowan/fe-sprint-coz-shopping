@@ -15,7 +15,9 @@ export default function CardDec({ product }) {
           <h3>{product.title}</h3>
           <p>{product.discountPercentage}%</p>
         </div>
-        <div className="subTitle">{product.price}원</div>
+        <div className="subTitle">
+          {Number(product.price).toLocaleString()}원
+        </div>
       </ProductDec>
     );
   } else if (product.type === "Category") {
@@ -43,7 +45,9 @@ export default function CardDec({ product }) {
           <h3>{product.brand_name}</h3>
           <p>관심고객수</p>
         </div>
-        <div className="subTitle">{product.follower}</div>
+        <div className="subTitle">
+          {Number(product.follower).toLocaleString()}
+        </div>
       </BrandDec>
     );
   }

@@ -1,16 +1,33 @@
 import { useState } from "react";
 import { CardContainer } from "../../styled/productCardStyle";
+import { getBookmarkList, setBookmarkList } from "../../api/bookmarkDataApi";
 import CardDec from "./productCardDec";
 import bookMarkOn from "../../assets/bookmark-on.png";
 import bookMarkOf from "../../assets/bookmark-off.png";
 
 // Product Category Exhibition Brand
 
-function ProductCard({ product }) {
-  const [isMark, setIsMark] = useState(false);
+function ProductCard({ product, setIsChangeBookmark, listType }) {
+  const [isMark, setIsMark] = useState(listType === "bookmark" ? true : false);
 
   const handleClick = () => {
-    return setIsMark(!isMark);
+    if (!isMark) {
+      const addBookmark = [...getBookmarkList()];
+      addBookmark.push(product);
+      setBookmarkList(addBookmark);
+      setIsChangeBookmark(true);
+      setIsChangeBookmark(false);
+      setIsMark(true);
+    } else {
+      const bookmark = [...getBookmarkList()];
+      const delBookmark = bookmark.filter((el) => {
+        return el.id !== product.id;
+      });
+      setBookmarkList(delBookmark);
+      setIsChangeBookmark(true);
+      setIsChangeBookmark(false);
+      setIsMark(false);
+    }
   };
 
   return (
