@@ -11,6 +11,7 @@ export const FooterContainer = styled.footer`
   color: #888;
   background: #ffffff;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 24px;
 
   > div {
     height: 18px;

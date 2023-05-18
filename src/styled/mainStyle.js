@@ -17,7 +17,13 @@ export const Container = styled.section`
     > ul {
       margin-top: 12px;
       display: flex;
-      justify-content: space-between;
+      justify-content: left;
+      > li {
+        margin-right: 24px;
+      }
+      > li:last-child {
+        margin-right: 0;
+      }
     }
   }
 `;
