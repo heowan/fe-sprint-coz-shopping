@@ -1,14 +1,16 @@
 import ProductCard from "../components/products/productCard";
 import { Container } from "../styled/mainStyle";
 import { useEffect, useState } from "react";
+import { getFourProducts } from "../api/productDataApi";
 
 function Main({ productList, setProductList, bookmarkList, setBookmarkList }) {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    const list = productList.slice(0, 4);
-    setList(list);
-  }, [productList]);
+    getFourProducts().then((result) => {
+      setList(result);
+    });
+  }, []);
 
   return (
     <Container>
