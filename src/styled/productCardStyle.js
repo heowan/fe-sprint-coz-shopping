@@ -3,17 +3,20 @@ import { styled } from "styled-components";
 export const CardContainer = styled.li`
   width: 264px;
 
-  > .cardImg {
+  > .cardImgContainer {
     position: relative;
-    > img {
-      width: 264px;
-      height: 210px;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 12px;
-      object-fit: cover;
+
+    > .cardImg {
+      > img {
+        width: 264px;
+        height: 210px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        object-fit: cover;
+      }
     }
 
-    > button {
+    > .bookmark {
       background-color: rgb(0, 0, 0, 0);
       position: absolute;
       top: 174px;
