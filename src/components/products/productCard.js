@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CardContainer } from "../../styled/productCardStyle";
+import { getBookmarkList, setBookmarkList } from "../../api/bookmarkDataApi";
 import CardDec from "./productCardDec";
 import bookMarkOn from "../../assets/bookmark-on.png";
 import bookMarkOf from "../../assets/bookmark-off.png";
@@ -10,7 +11,19 @@ function ProductCard({ product }) {
   const [isMark, setIsMark] = useState(false);
 
   const handleClick = () => {
-    return setIsMark(!isMark);
+    if (!isMark) {
+      const addBookmark = [...getBookmarkList()];
+      addBookmark.push(product);
+      setBookmarkList(addBookmark);
+      setIsMark(true);
+    } else {
+      const bookmark = [...getBookmarkList()];
+      const delBookmark = bookmark.filter((el) => {
+        return el.id !== product.id;
+      });
+      setBookmarkList(delBookmark);
+      setIsMark(false);
+    }
   };
 
   return (

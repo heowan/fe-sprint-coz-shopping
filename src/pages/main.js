@@ -3,13 +3,20 @@ import { Container } from "../styled/mainStyle";
 import { useEffect, useState } from "react";
 import { getFourProducts } from "../api/productDataApi";
 
-function Main({ productList, setProductList, bookmarkList, setBookmarkList }) {
-  const [list, setList] = useState([]);
+function Main() {
+  const [productList, setProductList] = useState([]);
 
+  // 상품리스트 가져오기
   useEffect(() => {
     getFourProducts().then((result) => {
-      setList(result);
+      setProductList(result);
     });
+  }, []);
+
+  // 북마크리스트 가져오기
+  useEffect(() => {
+    const bookmarkStr = JSON.parse(window.localStorage.getItem("bookmark"));
+    //console.log(bookmarkStr);
   }, []);
 
   return (
@@ -17,7 +24,7 @@ function Main({ productList, setProductList, bookmarkList, setBookmarkList }) {
       <div className="productList">
         <h2>상품 리스트</h2>
         <ul>
-          {list.map((el) => {
+          {productList.map((el) => {
             return <ProductCard key={el.id} product={el} />;
           })}
         </ul>
