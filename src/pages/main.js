@@ -4,10 +4,9 @@ import { useEffect, useState } from "react";
 import { getFourProducts } from "../api/productDataApi";
 import { getBookmarkList } from "../api/bookmarkDataApi";
 
-function Main() {
+function Main({ isChangeBookmark, setIsChangeBookmark }) {
   const [productList, setProductList] = useState([]);
   const [bookmarkList, setbookmarkList] = useState([]);
-  const [isChangeBookmark, setIsChangeBookmark] = useState(false);
 
   // 상품리스트 가져오기
   useEffect(() => {
@@ -21,8 +20,6 @@ function Main() {
     const localStorageData = getBookmarkList(4);
     setbookmarkList(localStorageData);
   }, [isChangeBookmark]);
-
-  console.log(bookmarkList);
 
   return (
     <Container>
@@ -49,7 +46,6 @@ function Main() {
                 key={el.id}
                 product={el}
                 setIsChangeBookmark={setIsChangeBookmark}
-                listType={"bookmark"}
               />
             );
           })}

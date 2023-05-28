@@ -6,8 +6,12 @@ import bookMarkOn from "../../assets/bookmark-on.png";
 import bookMarkOf from "../../assets/bookmark-off.png";
 import Modal from "../modal";
 
-function ProductCard({ product, setIsChangeBookmark, listType }) {
-  const [isMark, setIsMark] = useState(listType === "bookmark" ? true : false);
+const bookmarkList = [...getBookmarkList()];
+
+function ProductCard({ product, setIsChangeBookmark }) {
+  const [isMark, setIsMark] = useState(
+    bookmarkList.find((el) => el.id === product.id) ? true : false
+  );
   const [openModal, setOpenModal] = useState(false);
 
   const handleClick = () => {
